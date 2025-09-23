@@ -1,0 +1,15 @@
+# Usa una imagen base oficial de Node.js
+FROM node:22-alpine
+
+# Instala las dependencias
+RUN npm i -g nodemon
+RUN mkdir -p /home/app
+
+WORKDIR /home/app
+
+
+EXPOSE 3000
+# Expone el puerto 3000 para que la aplicación sea accesible desde fuera del contenedor.
+
+CMD ["nodemon", "index.js"]
+# Comando por defecto: ejecuta el archivo index.js con Node.js

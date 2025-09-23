@@ -19,6 +19,7 @@ const app = express();
 // mongoose.connect('mongodb://root:r0O7@localhost:27017/miapp?authSource=admin') /* Password: r0O7 */
 mongoose.connect('mongodb://root:r0O7@monguse:27017/miapp?authSource=admin')
 
+
 app.get('/', async(_req, res) => {
     console.log("listado de usuarios...");
     const usuarios = await Usuarios.find();
@@ -28,12 +29,17 @@ app.get('/', async(_req, res) => {
 app.get('/crear', async(_req, res) => {
     console.log("Insertando...");
     await Usuarios.create({
-        'usuario': 'Emanuel Buritica',
+        'usuario': 'Emanuel Buritica Guababe',
         'correo': 'Emanuelburitica2000@gmail.com',
         'clave': '1234'
     })
 
     return res.send("Ok")
 })
+
+app.get('/nueva', async(_req, res) => {
+    return res.send("Ruta creada desde desarrollo OK")
+})
+
 
 app.listen(3000, () => console.log("Escuchando el puerto: 3000"));
